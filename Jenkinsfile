@@ -18,17 +18,17 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'python3 -m venv venv'
-                sh './venv/bin/pip install -r requirements.txt'
+                sh 'python3 -m venv /var/jenkins_home/jobs/flask-ecommerce-pipeline/workspace/venv'  // Full path to venv
+                sh 'chmod +x /var/jenkins_home/jobs/flask-ecommerce-pipeline/workspace/venv/bin/activate'  // Ensure activate is executable
+                sh '/var/jenkins_home/jobs/flask-ecommerce-pipeline/workspace/venv/bin/pip install -r requirements.txt'  // Install dependencies
             }
         }
         stage('Run Unit Tests') {
             steps {
-                sh './venv/bin/python -m unittest discover -s tests'
+                sh '/var/jenkins_home/jobs/flask-ecommerce-pipeline/workspace/venv/bin/python -m unittest discover -s tests'  // Run tests
             }
         }
     }
 }
-
 
 
