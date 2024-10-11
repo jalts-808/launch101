@@ -25,5 +25,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-#updating container reqs1
+#updating venv
 
