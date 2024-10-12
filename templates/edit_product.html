@@ -1,0 +1,15 @@
+<form method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="{{ product.name if product else '' }}" required>
+    
+    <label for="description">Description:</label>
+    <textarea name="description" required>{{ product.description if product else '' }}</textarea>
+    
+    <label for="price">Price:</label>
+    <input type="number" name="price" value="{{ product.price if product else '' }}" step="0.01" required>
+    
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" value="{{ product.stock if product else '' }}" required>
+    
+    <button type="submit">{{ 'Update' if product else 'Add' }} Product</button>
+</form>
